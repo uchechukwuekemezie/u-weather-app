@@ -4,7 +4,7 @@ const locationButton = document.querySelector(".location-btn");
 const currentWeatherDiv = document.querySelector(".current-weather");
 const weatherCardsDiv = document.querySelector(".weather-cards");
 
-const API_KEY = "45b44e51fb6445ff88f235516233008"; // API key for OpenWeatherMap API
+const API_KEY = "af757cfe3235b4cef0b949e4b6e9afb0"; // API key for OpenWeatherMap API
 
 const createWeatherCard = (cityName, weatherItem, index) => {
   if (index === 0) {
@@ -18,7 +18,7 @@ const createWeatherCard = (cityName, weatherItem, index) => {
                     <h6>Humidity: ${weatherItem.main.humidity}%</h6>
                 </div>
                 <div class="icon">
-                    <img src="https://cdn.weatherapi.com/weather/64x64/night/116.png${
+                    <img src="https://openweathermap.org/img/wn/${
                       weatherItem.weather[0].icon
                     }@4x.png" alt="weather-icon">
                     <h6>${weatherItem.weather[0].description}</h6>
@@ -27,7 +27,7 @@ const createWeatherCard = (cityName, weatherItem, index) => {
     // HTML for the other five day forecast card
     return `<li class="card">
                     <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
-                    <img src="https://cdn.weatherapi.com/weather/64x64/night/116.png/${
+                    <img src="https://openweathermap.org/img/wn/${
                       weatherItem.weather[0].icon
                     }@4x.png" alt="weather-icon">
                     <h6>Temp: ${(weatherItem.main.temp - 273.15).toFixed(
@@ -40,7 +40,8 @@ const createWeatherCard = (cityName, weatherItem, index) => {
 };
 
 const getWeatherDetails = (cityName, latitude, longitude) => {
-  const WEATHER_API_URL = `https://api.weatherapi.com/v1/forecast?lat=${latitude}&lon=${longitude}&key=${API_KEY}`;
+  const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
+
   fetch(WEATHER_API_URL)
     .then((response) => response.json())
     .then((data) => {
@@ -52,10 +53,12 @@ const getWeatherDetails = (cityName, latitude, longitude) => {
           return uniqueForecastDays.push(forecastDate);
         }
       });
+
       // Clearing previous weather data
       cityInput.value = "";
       currentWeatherDiv.innerHTML = "";
       weatherCardsDiv.innerHTML = "";
+
       // Creating weather cards and adding them to the DOM
       fiveDaysForecast.forEach((weatherItem, index) => {
         const html = createWeatherCard(cityName, weatherItem, index);
@@ -74,7 +77,7 @@ const getWeatherDetails = (cityName, latitude, longitude) => {
 const getCityCoordinates = () => {
   const cityName = cityInput.value.trim();
   if (cityName === "") return;
-  const API_URL = `https://api.weatherapi.com/v1/forecast?q=${cityName}&limit=1&key=${API_KEY}`;
+  const API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
 
   // Get entered city coordinates (latitude, longitude, and name) from the API response
   fetch(API_URL)
