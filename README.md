@@ -3,6 +3,9 @@ U-Weather-App Readme
 Description
 U-Weather-App is a simple and user-friendly web application that allows users to check the weather forecast for a specified location. It fetches weather data from a weather API and presents it in an easy-to-read format. This project is a great starting point for anyone interested in building a weather app or learning about API integration in web development.
 
+Link to the deployed site: https://delicate-zabaione-7701bf.netlify.app/
+Link to the project's blog post: https://www.linkedin.com/pulse/u-weather-web-app-uchechukwu-ekemezie/
+
 Features
 Weather Data: U-Weather-App fetches current weather data for a user-specified location, including temperature, humidity, wind speed, and weather conditions.
 
