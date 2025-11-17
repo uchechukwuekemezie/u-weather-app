@@ -3,104 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>u-weather-app</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <title>U-Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Welcome to U-weather App!</h1>
-    <!-- <section> -->
-    <div class="container">
-      <div class="weather-input">
-        <h3>Search a city</h3>
-        <input class="city-input" type="text" placeholder="eg: Lagos, Benin" />
-        <button class="search-btn">Search</button>
-        <div class="separator"></div>
-        <button class="location-btn">Use Current Location</button>
-        <div class="weather-data">
-          <div class="current-weather">
+    <header class="header">
+      <h1>U-Weather App</h1>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <!-- Search Input -->
+        <div class="search-box">
+          <h3>Search a City</h3>
+          <input
+            type="text"
+            class="city-input"
+            placeholder="e.g., Lagos, London"
+          />
+          <button class="search-btn">Search</button>
+          <div class="separator">or</div>
+          <button class="location-btn">Use Current Location</button>
+        </div>
+
+        <!-- Weather Output -->
+        <div class="weather-output">
+          <div class="current-weather glass">
             <div class="details">
-              <h2>Lagos (2023-09-11)</h2>
-              <h4>Temperature: 29°C</h4>
-              <h4>Wind: 1.94m/s</h4>
-              <h4>Humidity: 78%</h4>
+              <h2 class="city-name">Lagos</h2>
+              <h4 class="temp">29°C</h4>
+              <h4 class="wind">Wind: 1.94 m/s</h4>
+              <h4 class="humidity">Humidity: 78%</h4>
             </div>
             <div class="icon">
               <img
-                src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                alt="weather-icon"
+                src="https://openweathermap.org/img/wn/02n@2x.png"
+                alt="weather"
               />
-              <h4>Partly cloudy</h4>
+              <h4 class="condition">Partly Cloudy</h4>
             </div>
           </div>
-          <div class="days-forecast">
-            <h2>5-Day Forecast</h2>
-            <ul class="weather-cards">
-              <li class="card">
-                <h3>Lagos (2023-09-11)</h3>
-                <img
-                  src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                  alt="weather-icon"
-                />
-                <h3>( ______ )</h3>
-                <h6>Temp: __C</h6>
-                <h6>Wind: __ M/S</h6>
-                <h6>Humidity: __%</h6>
-              </li>
-              <li class="card">
-                <h3>Lagos (2023-09-11)</h3>
-                <img
-                  src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                  alt="weather-icon"
-                />
-                <h3>( ______ )</h3>
-                <h6>Temp: __C</h6>
-                <h6>Wind: __ M/S</h6>
-                <h6>Humidity: __%</h6>
-              </li>
-              <li class="card">
-                <h3>Lagos (2023-09-11)</h3>
-                <img
-                  src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                  alt="weather-icon"
-                />
-                <h4><h3>( ______ )</h3>
-                <h6>Temp: __C</h6>
-                <h6>Wind: __ M/S</h6>
-                <h6>Humidity: __%</h6>
-              </li>
-              <li class="card">
-                <h3>Lagos (2023-09-11)</h3>
-                <img
-                  src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                  alt="weather-icon"
-                />
-                <h3>( ______ )</h3>
-                <h6>Temp: __C</h6>
-                <h6>Wind: __ M/S</h6>
-                <h6>Humidity: __%</h6>
-              </li>
-              <li class="card">
-                <h3>Lagos (2023-09-11)</h3>
-                <img
-                  src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                  alt="weather-icon"
-                />
-                <h3>( ______ )</h3>
-                <h6>Temp: __C</h6>
-                <h6>Wind: __ M/S</h6>
-                <h6>Humidity: __%</h6>
-              </li>
-            </ul>
+
+          <div class="forecast">
+            <h3>5-Day Forecast</h3>
+            <div class="weather-cards">
+              <!-- Cards injected by JS -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- </section> -->
+    </main>
 
-    <footer>
-      <a class="about" href="about.html">About U-Weather</a>
+    <footer class="footer">
+      <a href="about.html" class="about-link">About U-Weather</a>
     </footer>
-  </body>
 
-  <script src="./app.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
